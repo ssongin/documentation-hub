@@ -1,0 +1,34 @@
+name: Check resource links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 7 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - "data/catalog.json"
+      - "scripts/check_links.py"
+      - ".github/workflows/check-links.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    name: Check documentation and repository URLs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate catalog
+        run: python scripts/validate_catalog.py
+
+      - name: Check links
+        run: python scripts/check_links.py

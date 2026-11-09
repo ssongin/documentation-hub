@@ -1,0 +1,38 @@
+name: Validate catalog
+
+on:
+  pull_request:
+    paths:
+      - "data/catalog.json"
+      - "scripts/validate_catalog.py"
+      - ".github/workflows/validate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "data/catalog.json"
+      - "scripts/validate_catalog.py"
+      - ".github/workflows/validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-commit:
+    uses: ssongin/gha-commit/.github/workflows/validate-commit-message.yml@master
+
+  validate:
+    name: Validate catalog JSON
+    needs: validate-commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate catalog
+        run: python scripts/validate_catalog.py

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A central directory of reusable engineering resources, libraries, workflows and project templates.">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Developer Hub</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%232563eb'/%3E%3Cpath d='M11 11h7v7h-7zm11 0h7v7h-7zM11 22h7v7h-7zm11 0h7v7h-7z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="src/css/main.css">
+  <script>
+    (() => {
+      const saved = localStorage.getItem('developer-hub-theme');
+      const theme = saved || 'system';
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Developer Hub home">
+        <span class="brand-mark" aria-hidden="true"><i data-lucide="layers"></i></span>
+        <span>Developer Hub</span>
+      </a>
+      <nav class="top-actions" aria-label="Main actions">
+        <label class="theme-control">
+          <span class="sr-only">Color theme</span>
+          <i data-lucide="sun-moon" aria-hidden="true"></i>
+          <select id="theme-select" aria-label="Color theme">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <a class="icon-button" href="https://github.com/ssongin" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" title="GitHub">
+          <i data-lucide="github"></i>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> ENGINEERING RESOURCES</div>
+        <h1>Everything you build.<br><span>One place to find it.</span></h1>
+        <p class="hero-copy">A central directory of reusable tools, libraries, workflows and project templates.</p>
+        <div class="search-wrap">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input id="search-input" type="search" placeholder="Search resources, descriptions or tags..." autocomplete="off" aria-label="Search resources">
+          <kbd> / </kbd>
+          <button id="clear-search" class="clear-search" type="button" aria-label="Clear search" hidden><i data-lucide="x"></i></button>
+        </div>
+        <div class="search-hint"><span id="resource-count">Loading resources…</span><span>Search by name, category or tag</span></div>
+      </section>
+
+      <div id="catalog" class="catalog" aria-live="polite">
+        <div class="loading-state"><span class="spinner"></span> Loading catalog…</div>
+      </div>
+      <div id="empty-state" class="empty-state" hidden>
+        <span class="empty-icon"><i data-lucide="search-x"></i></span>
+        <h2>No matching resources</h2>
+        <p>Try a different search term or clear your search.</p>
+        <button id="reset-search" class="text-button" type="button">Clear search</button>
+      </div>
+      <div id="error-state" class="error-state" hidden>
+        <i data-lucide="alert-circle"></i>
+        <div><strong>Couldn't load the catalog.</strong><p>Check that <code>data/catalog.json</code> exists and is valid JSON.</p></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Developer Hub</span>
+      <span>Built for discoverability.</span>
+    </footer>
+  </div>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script type="module" src="src/js/app.js"></script>
+</body>
+</html>

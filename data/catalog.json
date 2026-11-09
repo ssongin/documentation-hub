@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "description": "Reusable workflows and automation.",
+      "icon": "workflow",
+      "items": [
+        {
+          "id": "gha-commit",
+          "name": "Commit Actions",
+          "description": "Extract, validate and manage commit messages.",
+          "url": "https://ssongin.github.io/gha-commit/",
+          "repository": "https://github.com/ssongin/gha-commit",
+          "icon": "git-commit",
+          "tags": [
+            "github-actions",
+            "conventional-commits",
+            "versioning"
+          ]
+        },
+        {
+          "id": "gha-docs",
+          "name": "Docs publisher",
+          "description": "Publish documentation to GitHub Pages.",
+          "url": "https://ssongin.github.io/gha-docs/",
+          "repository": "https://github.com/ssongin/gha-docs",
+          "icon": "book-up",
+          "tags": [
+            "github-actions",
+            "documentation"
+          ]
+        },
+        {
+          "id": "gha-ansible",
+          "name": "Ansible CI/CD",
+          "description": "Reusable workflows for Ansible projects: linting, syntax validation, testing, and publishing.",
+          "url": "https://ssongin.github.io/gha-ansible/",
+          "repository": "https://github.com/ssongin/gha-ansible",
+          "icon": "workflow",
+          "tags": [
+            "github-actions",
+            "ansible",
+            "lint",
+            "testing",
+            "ci-cd",
+            "automation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "libraries",
+      "name": "Libraries",
+      "description": "Shared libraries and reusable components.",
+      "icon": "package",
+      "items": []
+    },
+    {
+      "id": "templates",
+      "name": "Project Templates",
+      "description": "Starting points for new projects.",
+      "icon": "files",
+      "items": []
+    }
+  ]
+}
