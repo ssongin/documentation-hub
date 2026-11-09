@@ -2,7 +2,7 @@ name: Deploy Developer Hub
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 permissions:

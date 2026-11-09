@@ -7,7 +7,7 @@ on:
       - "scripts/validate_catalog.py"
       - ".github/workflows/validate.yml"
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "data/catalog.json"
       - "scripts/validate_catalog.py"

@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "17 7 * * 1"
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "data/catalog.json"
       - "scripts/check_links.py"
